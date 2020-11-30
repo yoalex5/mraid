@@ -541,7 +541,6 @@ window.addEventListener("orientationchange", function ()
 
 function logMRAIDMessage(message)
 {
-	// Replace this method with whatever logging best works for your test environment
 	console.log("MRAID: " + message);
 }
 
@@ -603,15 +602,13 @@ function showMyAd()
 {
 	updateAllDiagnostics();
 		
-	// Add all listeners
 	mraid.addEventListener("stateChange", stateChangeHandler);
 	mraid.addEventListener("sizeChange", sizeChangeHandler);
 	mraid.addEventListener("viewableChange", viewableChangeHandler);
 	mraid.addEventListener("error", errorHandler);
 	
 	logMRAIDMessage("MRAID version = " + mraid.getVersion());
-	
-	// First call to getExpandProperties should return screen width/height.  
+	 
 	var expandProperties = mraid.getExpandProperties();
 	if ( (window.orientation == 0) || (window.orientation == 180) )
 	{
@@ -626,7 +623,6 @@ function showMyAd()
 	
 	logMRAIDMessage("width = " + screenWidth + ", height = " + screenHeight);
 	
-	// Setup resize width/height based on max resize size available on this device
 	var resizeMaxSize = mraid.getMaxSize();
 	document.getElementById("ResizeWidth").value = resizeMaxSize.width;
 	document.getElementById("ResizeHeight").value = resizeMaxSize.height;
